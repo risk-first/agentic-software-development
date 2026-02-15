@@ -1,0 +1,80 @@
+---
+metadata:
+  author:
+    description: Risk-First Software Development community
+    id: risk-first
+    name: Risk-First
+    type: Human
+    uri: https://riskfirst.org
+  description: |
+    A risk framework for agentic AI software development, addressing the unique
+    challenges that arise when AI systems autonomously write, modify, and deploy
+    code. This framework fills critical gaps in existing AI governance standards
+    (NIST AI RMF, ISO/IEC 42001) which focus on AI as a decision-making component
+    rather than as a producer and modifier of software itself.
+  id: agentic-sdlc
+  mapping-references:
+    - description: |
+        The NIST AI Risk Management Framework (AI RMF) provides guidance for
+        managing risks associated with AI systems throughout their lifecycle.
+        It emphasizes governance, mapping, measurement, and management of AI risks.
+        While comprehensive for AI governance, it lacks specific controls for
+        AI-generated code verification and autonomous software modification.
+      id: nist-ai-rmf
+      title: NIST AI Risk Management Framework
+      url: https://www.nist.gov/itl/ai-risk-management-framework
+      version: '1.0'
+    - description: |
+        ISO/IEC 42001 specifies requirements for establishing, implementing,
+        maintaining, and continually improving an AI management system within
+        organizations. It focuses on organizational controls and accountability
+        but does not address the specific risks of AI systems that produce or
+        modify executable code.
+      id: iso-42001
+      title: ISO/IEC 42001 AI Management System
+      url: https://www.iso.org/standard/81230.html
+      version: '2023'
+    - description: |
+        The NIST SSDF provides a set of practices for secure software development.
+        While not AI-specific, it provides foundational controls for software
+        supply chain security that are essential when AI agents generate code.
+      id: nist-ssdf
+      title: NIST Secure Software Development Framework
+      url: https://csrc.nist.gov/Projects/ssdf
+      version: '1.1'
+    - description: |
+        SLSA is a security framework for ensuring the integrity of software
+        artifacts throughout the supply chain. Critical for establishing
+        provenance and integrity of AI-generated code artifacts.
+      id: slsa
+      title: Supply-chain Levels for Software Artifacts
+      url: https://slsa.dev/
+      version: '1.0'
+    - description: |
+        MITRE ATLAS (Adversarial Threat Landscape for AI Systems) is a
+        knowledge base of adversary tactics and techniques against AI/ML
+        systems. It provides a structured framework for understanding threats
+        to machine learning systems, including LLM-based agents.
+      id: mitre-atlas
+      title: MITRE ATLAS
+      url: https://atlas.mitre.org/
+      version: '4.0'
+    - description: |
+        The OWASP Top 10 for Agentic Applications 2026 identifies critical
+        security risks for autonomous AI systems. Developed by the OWASP
+        Agentic Security Initiative, it covers threats across Agent Design,
+        Memory, Planning & Autonomy, Tool Use, and Deployment & Operations.
+      id: owasp-agentic
+      title: OWASP Top 10 for Agentic Applications
+      url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+      version: '2026'
+    - description: |
+        The OWASP Top 10 for LLM Applications identifies critical security
+        risks for Large Language Model applications. LLM08 (Excessive Agency)
+        is particularly relevant to agentic systems.
+      id: owasp-llm
+      title: OWASP Top 10 for LLM Applications
+      url: https://genai.owasp.org/llm-top-10/
+      version: '2025'
+  title: Agentic Software Development Risk Framework
+  version: v0.1.0

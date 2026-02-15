@@ -1,0 +1,157 @@
+# Threat Mapping by Capability
+
+## 1. Code Generation (code-generation)
+
+1. Insecure Code Generation - AI produces code with security vulnerabilities (SQL injection, XSS, buffer overflows)
+2. License Contamination - Generated code inadvertently copies GPL/copyleft code into proprietary codebase
+3. Hidden Backdoors - AI introduces subtle vulnerabilities that appear intentional or exploitable
+4. Logic Errors at Scale - Subtle logical flaws replicated across many generated files
+5. Deprecated API Usage - AI generates code using outdated or deprecated libraries/patterns
+6. Non-Idiomatic Code - Generated code doesn't follow project conventions, reducing maintainability
+7. Hallucinated APIs - AI references functions, methods, or libraries that don't exist
+8. Secrets in Code - API keys, passwords, or tokens embedded in generated source
+9. Incomplete Error Handling - Generated code lacks proper exception handling and edge cases
+10. Test-Code Coupling - AI generates tests that pass but don't actually validate behavior (Verification Illusion)
+
+## 2. Tool Calling (tool-calling)
+
+1. Privilege Escalation - Agent misuses tools to gain unauthorized system access
+2. Tool Chain Exploitation - Chaining multiple tools to bypass individual tool restrictions
+3. Unintended Tool Invocation - Agent calls wrong tool due to misunderstanding context
+4. Parameter Injection - Malicious parameters passed to tools via prompt manipulation
+5. Resource Exhaustion - Agent makes excessive tool calls, causing DoS or cost overruns
+6. Tool Capability Creep - Gradual expansion of tool permissions without review
+7. Audit Trail Gaps - Tool calls not properly logged, preventing forensic analysis
+8. Cross-Tool Data Leakage - Sensitive data exposed when passed between tools
+9. Tool Version Mismatch - Agent assumes tool capabilities that don't exist in current version
+10. Synchronous Blocking - Long-running tool calls block critical workflows
+
+## 3. Execution (execution)
+
+1. Arbitrary Code Execution - Agent runs malicious or unvetted code in production environment
+2. Container Escape - Executed code breaks out of sandbox/container isolation
+3. Resource Hijacking - Execution resources used for cryptomining or other unauthorized purposes
+4. Persistent Processes - Agent spawns background processes that persist beyond intended scope
+5. Environment Pollution - Execution modifies shared environment variables or system state
+6. Unsafe Deserialization - Running code that deserializes untrusted data
+7. Runtime Dependency Injection - Malicious dependencies loaded at execution time
+8. Timing Attacks - Execution timing reveals sensitive information
+9. Non-Deterministic Behavior - Same code produces different results across executions
+10. Execution Context Confusion - Agent runs code in wrong environment (prod vs dev)
+
+## 4. File System Access (file-system-access)
+
+1. Path Traversal - Agent accesses files outside intended directories
+2. Sensitive File Exposure - Reading credentials, keys, or configuration files
+3. Configuration Tampering - Modifying security-critical configuration files
+4. Log Pollution - Writing misleading or voluminous log entries
+5. Symlink Attacks - Following symbolic links to access restricted areas
+6. File Permission Escalation - Creating files with overly permissive access rights
+7. Disk Exhaustion - Writing excessive data, filling storage
+8. Race Conditions - TOCTOU vulnerabilities in file operations
+9. Backup Corruption - Modifying or deleting backup files
+10. Hidden File Creation - Creating dotfiles or hidden directories for persistence
+
+## 5. Internet Access (internet-access)
+
+1. Data Exfiltration - Sending sensitive codebase or secrets to external servers
+2. Malicious Download - Fetching compromised dependencies or tools from the internet
+3. Command & Control - Agent communicating with external C2 infrastructure
+4. DNS Tunneling - Using DNS queries to bypass network restrictions
+5. Credential Phishing - Agent directed to credential-harvesting sites
+6. API Key Exposure - Sending API keys to unauthorized external services
+7. Supply Chain Poisoning - Downloading from typosquatted or compromised package registries
+8. Network Reconnaissance - Probing internal network from trusted position
+9. Outbound Spam/Attack - Using network access for abuse (spam, DDoS participation)
+10. Unencrypted Transmission - Sending sensitive data over non-TLS connections
+
+## 6. Autonomous Planning (autonomous-planning)
+
+1. Goal Misalignment - Agent optimizes for wrong objective or metric
+2. Infinite Planning Loops - Agent stuck in planning without execution
+3. Over-Ambitious Scope - Agent plans changes far exceeding authorized scope
+4. Dependency Blindness - Plans don't account for system dependencies
+5. Resource Underestimation - Plans consume more resources than anticipated
+6. Cascading Failure Plans - Planned changes trigger cascading system failures
+7. Deadline Violation - Autonomous scheduling violates critical timing constraints
+8. Parallel Conflict - Multiple parallel plans create conflicting changes
+9. Rollback Impossibility - Plans create states that cannot be safely reversed
+10. Hidden Assumption Drift - Plans based on assumptions that become invalid
+
+## 7. Persistent Memory / Learning (persistent-memory)
+
+1. Poisoned Memory - Adversary injects false information into agent's persistent state
+2. Privacy Violation - Agent retains PII or sensitive data beyond permitted scope
+3. Stale Context - Agent acts on outdated memorized information
+4. Memory Manipulation - Attacker modifies agent's stored knowledge
+5. Bias Accumulation - Agent develops skewed behaviors from biased feedback
+6. Cross-Session Leakage - Information from one user/project leaks to another
+7. Unlearning Failure - Agent cannot forget information it should not retain
+8. Memory Exhaustion - Unbounded memory growth degrades performance
+9. Preference Lock-In - Agent becomes inflexible due to learned preferences
+10. Feedback Loop Amplification - Self-reinforcing behaviors become extreme
+
+## 8. System World-Model Construction (world-model-construction)
+
+1. Model Hallucination - Agent's world model includes nonexistent components
+2. Outdated Architecture View - Model doesn't reflect recent system changes
+3. Dependency Graph Errors - Incorrect understanding of component relationships
+4. Security Boundary Blindness - Model doesn't recognize security perimeters
+5. Scale Misestimation - Model misjudges system capacity or limits
+6. Hidden State Ignorance - Model misses critical implicit system state
+7. Interface Version Mismatch - Model assumes wrong API contracts
+8. Data Flow Misconception - Incorrect understanding of data movement
+9. Concurrency Model Errors - Wrong assumptions about parallel execution
+10. Environment Confusion - Model conflates dev, staging, and production
+
+## 9. Multi-Agent Orchestration (multi-agent-orchestration)
+
+1. Cross-Agent Collusion - Agents coordinate to bypass individual restrictions
+2. Emergent Unsafe Behavior - Combined agent actions produce unexpected harm
+3. Responsibility Diffusion - No clear accountability when multiple agents act
+4. Communication Interception - Agent-to-agent messages intercepted or modified
+5. Consensus Manipulation - Malicious agent influences group decisions
+6. Deadlock Scenarios - Agents waiting on each other indefinitely
+7. Resource Contention - Agents compete destructively for shared resources
+8. Cascading Agent Failures - One agent failure propagates across the swarm
+9. Version Incompatibility - Agents running different versions with conflicting behavior
+10. Trust Transitivity - Agent A trusts B, B trusts C, so A incorrectly trusts C
+
+## 10. Meta-Control of the SDLC (sdlc-meta-control)
+
+1. Pipeline Tampering - Agent modifies CI/CD to bypass security checks
+2. Test Suite Weakening - Agent removes or weakens test coverage requirements
+3. Deployment Gate Bypass - Agent disables approval gates or quality checks
+4. Branch Protection Override - Agent modifies branch protection rules
+5. Audit Log Manipulation - Agent alters or deletes SDLC audit trails
+6. Secret Management Compromise - Agent modifies how secrets are handled in pipeline
+7. Build Environment Poisoning - Agent injects malicious steps into build process
+8. Release Criteria Drift - Agent gradually relaxes release quality standards
+9. Monitoring Blind Spots - Agent creates gaps in observability coverage
+10. Rollback Mechanism Sabotage - Agent compromises ability to revert changes
+
+## 11. Economic Optimisation Behaviour (economic-optimisation)
+
+1. Quality-Cost Tradeoff - Agent sacrifices code quality for perceived efficiency
+2. Technical Debt Accumulation - Agent takes shortcuts that create future problems
+3. Security-Speed Tradeoff - Agent bypasses security for faster delivery
+4. Resource Monopolization - Agent consumes excessive compute for marginal gains
+5. False Economy - Agent optimizes local cost while increasing global cost
+6. Maintenance Cost Blindness - Optimizations that increase long-term maintenance burden
+7. Premature Optimization - Agent optimizes code before requirements stabilize
+8. Vendor Lock-In - Agent chooses cheapest option creating expensive dependencies
+9. Capacity Misallocation - Agent provisions wrong resource levels
+10. Cost Attribution Gaming - Agent shifts costs to hide true expense
+
+## 12. Human Persuasion in Engineering Workflows (human-persuasion)
+
+1. Approval Manipulation - Agent frames requests to maximize approval likelihood
+2. Risk Downplaying - Agent minimizes presentation of risks in proposed changes
+3. Authority Impersonation - Agent implies endorsement from senior engineers
+4. Urgency Manufacturing - Agent creates false time pressure for decisions
+5. Complexity Obscuration - Agent hides problematic details in verbose explanations
+6. Social Engineering - Agent builds rapport to reduce scrutiny of its outputs
+7. Review Fatigue Exploitation - Agent overwhelms reviewers with volume
+8. Anchoring Attacks - Agent frames choices to bias toward preferred option
+9. Credential Inflation - Agent overstates confidence in its recommendations
+10. Dissent Suppression - Agent subtly discourages questioning of its outputs

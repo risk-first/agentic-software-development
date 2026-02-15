@@ -1,0 +1,39 @@
+.docList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.docItem {
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.docItem:hover {
+    border-color: var(--ifm-color-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.docItem h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+.docItem a {
+    text-decoration: none;
+}
+
+.docItem a:hover {
+    text-decoration: none;
+}
+
+.description {
+    color: var(--ifm-color-emphasis-600);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}

@@ -1,3 +1,9 @@
+---
+slug: /
+sidebar_position: 1
+title: Agentic SDLC Risk Framework
+---
+
 # Agentic Software Development Risk Framework
 
 A risk framework for **agentic AI software development** — addressing the unique threats that emerge when humans employ AI systems to help write, modify, and deploy code.
@@ -24,18 +30,11 @@ Risks unique to or amplified by agentic software development.
 
 ### Control Families
 
-Six control domains to address agentic SDLC risk.
+Controls to address agentic risk.
 
-## 
+### Capabilities
 
-
-
-> **Manage downside before enabling capability.**
-
-It is designed to be compatible with:
-- CI/CD implementation patterns
-- FINOS-style governance specifications
-- Enterprise security frameworks
+The capabilities of generative coding systems that give rise to the threats.
 
 ## Contributing
 
