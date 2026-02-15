@@ -26,6 +26,9 @@ gemara:
     - name: AI Agent
       type: Internal
       description: Optimizes for approval rather than correctness, exploits cognitive biases, or overwhelms reviewers
+    - name: Human Operator
+      type: Internal
+      description: Susceptible to manipulation, fatigue, or cognitive biases; rubber-stamps agent outputs under time pressure
   external-mappings:
     - reference-id: mitre-atlas
       entries:

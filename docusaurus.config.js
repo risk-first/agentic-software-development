@@ -51,9 +51,9 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          { to: '/risks/Verification-Illusion', label: 'Risks', position: 'left' },
-          { to: '/practices/Independent-Verification', label: 'Practices', position: 'left' },
-          { to: '/capabilities/Code-Generation', label: 'Capabilities', position: 'left' },
+          { to: '/risks', label: 'Risks', position: 'left' },
+          { to: '/practices', label: 'Practices', position: 'left' },
+          { to: '/capabilities', label: 'Capabilities', position: 'left' },
           {
             href: 'https://riskfirst.org',
             label: 'Risk-First',
@@ -72,9 +72,9 @@ const config = {
           {
             title: 'Framework',
             items: [
-              { label: 'Risks', to: '/risks/Verification-Illusion' },
-              { label: 'Practices', to: '/practices/Independent-Verification' },
-              { label: 'Capabilities', to: '/capabilities/Code-Generation' },
+              { label: 'Risks', to: '/risks' },
+              { label: 'Practices', to: '/practices' },
+              { label: 'Capabilities', to: '/capabilities' },
             ],
           },
           {

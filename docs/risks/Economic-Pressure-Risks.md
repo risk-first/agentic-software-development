@@ -23,6 +23,9 @@ gemara:
     - name: AI Agent
       type: Internal
       description: Over-optimizes for measurable efficiency metrics, sacrificing quality or security for speed
+    - name: Human Operator
+      type: Internal
+      description: Makes cost/speed tradeoffs under deadline pressure, accepts lower quality for faster delivery
     - name: Organisational Culture
       type: Systemic
       description: Rewards unsafe acceleration, creates pressure to bypass safety controls for delivery

@@ -26,6 +26,9 @@ gemara:
     - name: AI Agent
       type: Internal
       description: Prioritizes deployment speed over safety, creates irreversible states, or bypasses approval gates
+    - name: Human Operator
+      type: Internal
+      description: Approves risky deployments without adequate review, sets weak approval gates, or skips rollback planning
   external-mappings:
     - reference-id: mitre-atlas
       entries:

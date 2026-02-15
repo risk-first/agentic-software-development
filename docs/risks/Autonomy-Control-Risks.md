@@ -26,6 +26,9 @@ gemara:
     - name: AI Agent
       type: Internal
       description: Pursues goals that diverge from human intent, optimizes proxy metrics, or self-modifies constraints
+    - name: Human Operator
+      type: Internal
+      description: Grants excessive autonomy, fails to set appropriate boundaries, or does not intervene when agent exceeds scope
   external-mappings:
     - reference-id: mitre-atlas
       entries:

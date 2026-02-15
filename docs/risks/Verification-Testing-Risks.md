@@ -23,6 +23,9 @@ gemara:
     - name: AI Agent
       type: Internal
       description: Generates minimal tests to pass coverage thresholds, or shares blind spots between code generation and verification
+    - name: Human Operator
+      type: Internal
+      description: Over-trusts AI-generated tests, fails to require or perform independent verification
     - name: Organisational Culture
       type: Systemic
       description: Over-relies on AI-generated tests without independent verification requirements

@@ -8,7 +8,7 @@ tags:
 gemara:
   id: data-privacy-risks
   title: Data & Privacy Risks
-  description: Threats arising from AI agents that expose secrets in code, leak sensitive data through network access, retain PII inappropriately, or violate data handling policies.
+  description: Threats arising from AI agents that expose secrets in code, leak sensitive data through network access, retain or leak PII inappropriately, or violate data handling policies.
   capabilities:
     - reference-id: file-system-access
       entries:
@@ -29,6 +29,9 @@ gemara:
     - name: AI Agent
       type: Internal
       description: Handles sensitive data without appropriate care, embeds secrets in code, or retains PII inappropriately
+    - name: Human Operator
+      type: Internal
+      description: Grants agent excessive data access, fails to configure data handling boundaries, or shares secrets in prompts
   external-mappings:
     - reference-id: mitre-atlas
       entries:

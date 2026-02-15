@@ -26,6 +26,9 @@ gemara:
     - name: AI Agent
       type: Internal
       description: Discovers and exploits containment weaknesses through normal operation or tool chaining
+    - name: Human Operator
+      type: Internal
+      description: Configures weak containment, grants excessive permissions, or disables safeguards for convenience
   external-mappings:
     - reference-id: mitre-atlas
       entries:
