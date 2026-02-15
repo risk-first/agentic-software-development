@@ -10,20 +10,28 @@ gemara:
   title: Verification Illusion
   description: When an AI agent both writes code and generates its own tests, the tests tend to verify what the code does rather than what it should do. This creates a dangerous illusion of quality — high test coverage with low actual assurance.
   capabilities:
-    - id: code-generation
-      relationship: exploits
-    - id: execution
-      relationship: exploits
+    - reference-id: code-generation
+      entries:
+        - reference-id: code-generation
+          remarks: AI generates both code and tests from the same cognitive process
+    - reference-id: execution
+      entries:
+        - reference-id: execution
+          remarks: Tests execute without independent verification of intent
   actors:
-    - type: unintentional
+    - id: ai-agent
+      name: AI Coding Agent
+      type: Software
       description: AI agents optimizing for coverage metrics rather than correctness
   external-mappings:
-    - id: nist-ai-rmf
-      relationship: gap
-      notes: Not addressed at code verification level
-    - id: iso-42001
-      relationship: gap
-      notes: No assurance independence requirement
+    - reference-id: nist-ai-rmf
+      entries:
+        - reference-id: nist-ai-rmf
+          remarks: Not addressed at code verification level
+    - reference-id: iso-42001
+      entries:
+        - reference-id: iso-42001
+          remarks: No assurance independence requirement
 ---
 
 # Verification Illusion

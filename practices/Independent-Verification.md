@@ -27,8 +27,11 @@ gemara:
         - autonomous-deployment
         - ci-cd-integration
   threat-mappings:
-    - id: verification-illusion
-      relationship: mitigates
+    - reference-id: verification-illusion
+      entries:
+        - reference-id: verification-illusion
+          strength: 8
+          remarks: Primary control for preventing circular verification
 ---
 
 # Independent Verification
