@@ -1,0 +1,89 @@
+name: Validate Gemara Front Matter
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'risks/**/*.md'
+      - 'practices/**/*.md'
+      - 'capabilities/**/*.md'
+      - 'cue/**/*.cue'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'risks/**/*.md'
+      - 'practices/**/*.md'
+      - 'capabilities/**/*.md'
+      - 'cue/**/*.cue'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install CUE
+        uses: cue-lang/setup-cue@v1.0.1
+        with:
+          version: 'latest'
+
+      - name: Install yq
+        run: |
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+
+      - name: Validate risk files
+        run: |
+          echo "Validating risk files against #Threat schema..."
+          for file in risks/*.md; do
+            if [ -f "$file" ]; then
+              echo "Checking $file"
+              # Extract gemara YAML from front matter
+              gemara_yaml=$(sed -n '/^---$/,/^---$/p' "$file" | yq '.gemara' -o json 2>/dev/null)
+              if [ "$gemara_yaml" != "null" ] && [ -n "$gemara_yaml" ]; then
+                echo "$gemara_yaml" > /tmp/threat.json
+                cue vet /tmp/threat.json cue/gemara/layer-2.cue -d '#Threat'
+                echo "✓ $file validated"
+              else
+                echo "⚠ $file has no gemara front matter, skipping"
+              fi
+            fi
+          done
+
+      - name: Validate practice files
+        run: |
+          echo "Validating practice files against #Control schema..."
+          for file in practices/*.md; do
+            if [ -f "$file" ]; then
+              echo "Checking $file"
+              gemara_yaml=$(sed -n '/^---$/,/^---$/p' "$file" | yq '.gemara' -o json 2>/dev/null)
+              if [ "$gemara_yaml" != "null" ] && [ -n "$gemara_yaml" ]; then
+                echo "$gemara_yaml" > /tmp/control.json
+                cue vet /tmp/control.json cue/gemara/layer-2.cue -d '#Control'
+                echo "✓ $file validated"
+              else
+                echo "⚠ $file has no gemara front matter, skipping"
+              fi
+            fi
+          done
+
+      - name: Validate capability files
+        run: |
+          echo "Validating capability files against #Capability schema..."
+          for file in capabilities/*.md; do
+            if [ -f "$file" ]; then
+              echo "Checking $file"
+              gemara_yaml=$(sed -n '/^---$/,/^---$/p' "$file" | yq '.gemara' -o json 2>/dev/null)
+              if [ "$gemara_yaml" != "null" ] && [ -n "$gemara_yaml" ]; then
+                echo "$gemara_yaml" > /tmp/capability.json
+                cue vet /tmp/capability.json cue/gemara/layer-2.cue -d '#Capability'
+                echo "✓ $file validated"
+              else
+                echo "⚠ $file has no gemara front matter, skipping"
+              fi
+            fi
+          done
+
+      - name: Validation complete
+        run: echo "All Gemara front matter validated successfully!"
