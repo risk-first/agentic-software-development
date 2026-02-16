@@ -7,7 +7,7 @@ const config = {
   tagline: 'A Risk Framework for Agentic AI Software Development',
   favicon: 'img/favicon.ico',
 
-  url: 'https://agentic.riskfirst.org',
+  url: 'https://agentic-software-development.riskfirst.org',
   baseUrl: '/',
   trailingSlash: false,
 
@@ -47,8 +47,9 @@ const config = {
       navbar: {
         title: 'Agentic SDLC',
         logo: {
-          alt: 'Agentic SDLC Logo',
-          src: 'img/logo.svg',
+          alt: 'Risk First Logo',
+          src: 'img/R1_logo_round_white.svg',
+          srcDark: 'img/R1_logo_round_black.svg',
         },
         items: [
           { to: '/risks', label: 'Risks', position: 'left' },

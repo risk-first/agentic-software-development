@@ -1,0 +1,13 @@
+---
+Capability:
+  description: Core capabilities that AI agents possess in software development contexts
+  label: Capability
+  permalink: Capability
+Control:
+  description: Practices and controls that mitigate risks from agentic AI in software development
+  label: Control
+  permalink: Control
+Threat:
+  description: Risks and threats arising from AI agents in software development
+  label: Threat
+  permalink: Threat
