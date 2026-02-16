@@ -5,7 +5,7 @@ title: Agentic SDLC Risk Framework
 ---
 
 <p align="center">
-  <img src="/img/R1_logo_round_white.svg" alt="Risk First Logo" width="120" />
+  <img src="/static/img/R1_logo_round_white.svg" alt="Risk First Logo" width="120" />
 </p>
 
 # Agentic Software Development Risk Framework
