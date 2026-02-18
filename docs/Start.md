@@ -1,5 +1,4 @@
 ---
-slug: /
 sidebar_position: 1
 title: Introduction
 ---
@@ -16,30 +15,9 @@ This shifts risk from *"bad AI decision"* to *"unsafe evolving codebase"* — a 
 
 ---
 
-## Capabilities
+## Sections of this Catalog
 
-Agent capabilities that create attack surface:
-
-<TagList tag="Capability"/>
-
----
-
-## Risks
-
-Threats unique to or amplified by agentic software development:
-
-<TagList tag="Threat" />
-
----
-
-## Practices
-
-Controls and safeguards for agentic SDLC:
-
-<TagList tag="Control" />
-
-
----
+<TagList tag="Category"/>
 
 ## Related Standards
 

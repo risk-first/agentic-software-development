@@ -1,13 +1,11 @@
 import React from 'react';
 import styles from './styles.module.css'
 
-const Threat = ({ referenceId, entries }) => {
-	const firstEntry = entries?.[0];
+const Threat = ({ referenceId, reason }) => {
 	return (
 		<li>
 			<a href={`/risks/${referenceId}`}>{referenceId}</a>
-			{firstEntry?.remarks && `: ${firstEntry.remarks}`}
-			{firstEntry?.strength && <span className={styles.strength}> (strength: {firstEntry.strength}/10)</span>}
+			{reason && `: ${reason}`}
 		</li>
 	)
 }
@@ -56,20 +54,20 @@ export default ({ fm }) => {
 				</>
 			)}
 
-			{threatMappings.length > 0 && (
-				<>
-					<h3>Mitigates Threats</h3>
-					<ul>
-						{threatMappings.map((mapping, idx) => (
-							<Threat 
-								key={idx} 
-								referenceId={mapping['reference-id']} 
-								entries={mapping.entries} 
-							/>
-						))}
-					</ul>
-				</>
-			)}
+		{threatMappings.length > 0 && (
+			<>
+				<h3>Mitigates Threats</h3>
+				<ul>
+					{threatMappings.map((mapping, idx) => (
+						<Threat 
+							key={idx} 
+							referenceId={mapping['reference-id']} 
+							reason={mapping.entries?.[0]?.remarks}
+						/>
+					))}
+				</ul>
+			</>
+		)}
 		</div>
 	)
 }

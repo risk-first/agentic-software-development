@@ -37,6 +37,12 @@ export default ({ fm }) => {
 	const gemara = fm.gemara || {}
 	const gemaraMetadata = usePluginData('gemara-metadata') || {};
 	const mappingReferences = gemaraMetadata?.mappingReferences || {};
+	
+	// Get controls that mitigate this threat
+	const threatId = gemara.id
+	const allTags = usePluginData('category-listing') || {};
+	const relatedDocs = threatId ? (allTags[threatId] || []) : [];
+	const relatedControls = relatedDocs.filter(doc => doc.isAgenticControl);
 
 	const capabilities = gemara.capabilities || []
 	const externalMappings = gemara['external-mappings'] || []
@@ -45,6 +51,21 @@ export default ({ fm }) => {
 	return (
 		<div className={styles.threatIntro}>
 			<p className={styles.description}>{gemara.description || fm.description}</p>
+
+			{relatedControls.length > 0 && (
+				<>
+					<h3>Mitigating Controls</h3>
+					<ul>
+						{relatedControls.map((control, idx) => (
+							<Control 
+								key={idx} 
+								article={control.title} 
+								permalink={control.permalink}
+							/>
+						))}
+					</ul>
+				</>
+			)}
 
 			{capabilities.length > 0 && (
 				<>

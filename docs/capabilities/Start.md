@@ -3,6 +3,9 @@ title: Agentic Software Development Capabilities
 description: The foundational capabilities that enable AI agents to participate in software development
 sidebar_position: 1
 slug: /capabilities
+list_image: /img/icons/capability.svg
+tags:
+  - Category
 ---
 
 # Agentic Capabilities

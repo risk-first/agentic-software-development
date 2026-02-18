@@ -23,6 +23,9 @@ gemara:
     - name: External Attacker
       type: External
       description: Compromises upstream packages, registries, or creates typosquatted malicious packages
+    - name: Tool Supplier
+      type: External
+      description: LLM vendors, model providers, or tool maintainers who update models or APIs, causing behavior drift, cost changes, or breaking changes without notice
     - name: AI Agent
       type: Internal
       description: Selects dependencies based on training data popularity rather than security posture
@@ -80,3 +83,7 @@ Malicious dependencies loaded at execution time, bypassing static analysis and c
 ### Version Pinning Failures
 
 Agent uses unpinned or loosely pinned dependencies, allowing malicious updates to flow into builds.
+
+### Model Behavior Drift
+
+Upstream LLM model updates—from vendor version changes, model swaps, or fine-tuning—cause unexpected changes in token usage, tool call patterns, verbosity, or reasoning depth. This leads to cost overruns, performance degradation, or behavioral regressions without any code changes on your side.
